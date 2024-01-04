@@ -62,8 +62,10 @@ The LaTeX template for thesis of BUAA]
 \setCJKfamilyfont{hwxingkai}[Path=style/]{chinese.stxingka.ttf}
 \newcommand{\hwxingkai}{\CJKfamily{hwxingkai}}
 \newcommand{\xiaochuhao}{\fontsize{32pt}{\baselineskip}\selectfont}
+\newCJKfontfamily{\songti}[Path=style/]{song.ttf}
 \newCJKfontfamily{\heiti}[Path=style/]{hei.ttf}
 \newCJKfontfamily{\cusong}[AutoFakeBold,Path=style/]{song.ttf}
+\newCJKfontfamily{\cuhei}[AutoFakeBold,Path=style/]{hei.ttf}
 
 %%%%%%%%%% color %%%%%%%%%%
 % 颜色设置
@@ -151,9 +153,9 @@ The LaTeX template for thesis of BUAA]
 % 标题
 
 % 汉化
-\renewcommand{\contentsname}{\heiti\zihao{-2}\bfseries 目\qquad 录}
-\renewcommand\listfigurename{\heiti\zihao{-2}\bfseries 插\ 图\ 目\ 录}
-\renewcommand\listtablename{\heiti\zihao{-2}\bfseries 表\ 格\ 目\ 录}
+\renewcommand{\contentsname}{\cuhei\zihao{-2}\bfseries 目\qquad 录}
+\renewcommand\listfigurename{\cuhei\zihao{-2}\bfseries 插\ 图\ 目\ 录}
+\renewcommand\listtablename{\cuhei\zihao{-2}\bfseries 表\ 格\ 目\ 录}
 \renewcommand\bibname{参\ 考\ 文\ 献}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
@@ -412,10 +414,10 @@ The LaTeX template for thesis of BUAA]
 \RequirePackage{caption}
 \DeclareCaptionFormat{bachelorfigure}{\songti\zihao{5}{#1\textrm{#2}#3}}
 \DeclareCaptionFormat{bachelortable}{\heiti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{bachelorlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterfigure}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{mastertable}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
-\DeclareCaptionFormat{masterlstlisting}{\songti\bf\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{bachelorlstlisting}{\cusong\bfseries\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterfigure}{\cusong\bfseries\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{mastertable}{\cusong\bfseries\zihao{5}{#1\textrm{#2}#3}}
+\DeclareCaptionFormat{masterlstlisting}{\cusong\bfseries\zihao{5}{#1\textrm{#2}#3}}
 \ifbuaa@bachelor
     \captionsetup[figure]{format=bachelorfigure,labelsep=quad}
     \captionsetup[table]{format=bachelortable,labelsep=quad}
@@ -565,7 +567,7 @@ The LaTeX template for thesis of BUAA]
             \begin{center}
                 \begin{spacing}{1.5}
                     {
-                        \zihao{5}\heiti
+                        \zihao{5}\cuhei\bfseries
                         \begin{flushleft}
                             中图分类号：\buaa@category  \\
 							%中图分类号：\buaa@category\hfill 密级\ding{73}~~\buaa@mibao \\ % 保密论文时用此行代码替换上行代码即可
@@ -582,7 +584,7 @@ The LaTeX template for thesis of BUAA]
                     \begin{minipage}[h]{.85\textwidth}
                         \begin{spacing}{3}
                             % actually, it should be 1.5, but I think 3 will be prefect.
-                            \centering{\xiaochuhao\songti \buaa@thesistitle}
+                            \centering{\xiaochuhao\cusong\bfseries \buaa@thesistitle}
                         \end{spacing}
                     \end{minipage}
                     %\vspace{5bp}
@@ -642,16 +644,20 @@ The LaTeX template for thesis of BUAA]
         \begin{center}
             \zihao{-3}
             \ifbuaa@twoteacher
-                \begin{tabular}{rl}
-                    \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
-                    \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
-                    ~~ & \textbf{\buaa@subteacherdegreeeng ~~\buaa@subteachereng}\\
-                \end{tabular}
+                \textbf{Candidate: \buaa@thesisauthoreng}\\[0.5ex]
+                \textbf{Supervisor: \buaa@teacherdegreeeng ~~\buaa@teachereng}\\
+                % \begin{tabular}{rl}
+                %     \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
+                %     \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
+                %     ~~ & \textbf{\buaa@subteacherdegreeeng ~~\buaa@subteachereng}\\
+                % \end{tabular}
             \else
-                \begin{tabular}{rl}
-                    \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
-                    \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
-                \end{tabular}
+                \textbf{Candidate: \buaa@thesisauthoreng}\\[0.5ex]
+                \textbf{Supervisor: \buaa@teacherdegreeeng ~~\buaa@teachereng}\\
+                % \begin{tabular}{rl}
+                %     \textbf{Candidate:\ }&\textbf{\buaa@thesisauthoreng}\\[0.5ex]
+                %     \textbf{Supervisor:\ }&\textbf{\buaa@teacherdegreeeng ~~\buaa@teachereng}\\
+                % \end{tabular}
             \fi
         \end{center}
         \vskip 125bp
@@ -697,7 +703,7 @@ The LaTeX template for thesis of BUAA]
             \fi
         \end{flushright}
     \fi
-    \centerline{\heiti\zihao{3} 摘~~~~要}
+    \centerline{\cuhei\bfseries\zihao{3} 摘~~~~要}
     \ifbuaa@bachelor
         \vskip 10bp
         \par
@@ -710,7 +716,7 @@ The LaTeX template for thesis of BUAA]
     \ifbuaa@bachelor
         \noindent
     \fi
-    {\heiti\zihao{-4} 关键词：}\buaa@ckeyword
+    \cuhei\bfseries\zihao{-4} 关键词：\cusong\buaa@ckeyword
 }
 
 % 英文摘要
@@ -758,7 +764,7 @@ The LaTeX template for thesis of BUAA]
     \ifbuaa@bachelor
         \noindent
     \fi
-    {\bf\zihao{-4} Key words: }\buaa@ekeyword
+    \bfseries\zihao{-4} Key words: \buaa@ekeyword
 }
 
 %%%%%%%%%% announce %%%%%%%%%%
@@ -920,16 +926,16 @@ The LaTeX template for thesis of BUAA]
     \clearemptydoublepage
     \thispagestyle{empty}
     \begin{flushleft}
-        {\zihao{5}\heiti\bfseries
+        {\zihao{5}\cuhei\bfseries
         中图分类号：\buaa@category\\
         论\,\,文\,\,编\,\,号：\buaa@thesisID\\}
     \end{flushleft}
     \begin{center}
         \vskip 130bp
-        {\zihao{-2}\heiti{\ziju{1.3}\buaa@degree 论文}}
+        {\zihao{-2}\heiti\ziju{1.3}\buaa@degree 论文}
         \vskip 120bp
         \begin{minipage}[h]{.85\textwidth}
-            \zihao{-1}\heiti\centering{\buaa@thesistitle}
+            \zihao{-1}\heiti\centering\buaa@thesistitle
         \end{minipage}
 
         \vskip 130bp
@@ -949,6 +955,7 @@ The LaTeX template for thesis of BUAA]
         \end{spacing}
     \end{center}
 }
+
 
 %%%%%%%%%% creation and use %%%%%%%%%%
 % 研究生独创性声明和授权书
